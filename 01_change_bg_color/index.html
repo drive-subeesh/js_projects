@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Change BG Color</title>
+    <style type="text/css">
+        body{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .submit_button{
+            padding: 0.25em 0.5rem;
+            border: 3px solid #fefefe;
+            border-radius: 7px;
+            color: #fefefe;
+            background: rgba(0,0,0,0.6);
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            cursor: pointer;
+            outline: none;
+        }
+        .submit_button:hover{
+            background: rgb(0,0,0);
+        }
+    </style>
+</head>
+<body>
+    <button type="button" class="submit_button">Press here to change the color</button>
+</body>
+    <script>
+        const submitButton = document.querySelector('.submit_button');
+        const bodyBackground = document.querySelector('body');
+        const colors = ['yellow','red','green'];
+        submitButton.addEventListener('click',changeColor);
+
+        function changeColor() {
+            let random = Math.floor(Math.random()*colors.length);
+            bodyBackground.style.backgroundColor = colors[random]
+        }
+    </script>
+</html>
