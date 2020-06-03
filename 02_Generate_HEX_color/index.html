@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Generate_HEX_color</title>
+    <style type="text/css">
+        body{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container{
+            text-align: center;
+        }
+        .hex_color{
+            text-transform: capitalize;
+        }
+        .hex{
+            font-size: 3rem;
+        }
+        .submit_button{
+            padding: 0.25em 0.5rem;
+            border: 3px solid #f15025;
+            border-radius: 7px;
+            color: #f15025;
+            background: rgba(0,0,0,0.6);
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            cursor: pointer;
+            outline: none;
+        }
+        .submit_button:hover{
+            background: rgb(0,0,0);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="hex_color">This hex color code is: <span class="hex"></span></h2>
+        <button type="button" class="submit_button">Press here to change color</button>
+    </div>
+        <script>
+            const hexNumber = [0,1,2,3,4,5,6,7,8,9,"A","B","C","D","E","F"];
+            const submitButton = document.querySelector('.submit_button');
+            const bodyBackground = document.querySelector('body');
+            const hex = document.querySelector('.hex');
+
+            submitButton.addEventListener('click',getHex);
+
+            function getHex() {
+                let hexColor = '#';
+
+                for(let i = 0; i < 6; i++){
+                    let random = Math.floor(Math.random()*hexNumber.length);
+                    hexColor +=hexNumber[random];
+                }
+                bodyBackground.style.backgroundColor = hexColor;
+                hex.innerHTML = hexColor;
+            }
+        </script>
+</body>
+</html>
