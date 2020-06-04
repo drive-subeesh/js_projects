@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <link href="https://fonts.googleapis.com/css2?family=Tenali+Ramakrishna&display=swap" rel="stylesheet">
+    <title>Random Quotes</title>
+    <style type="text/css">
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #ffd0a8;
+            color: #333;
+            font-family: Calibri sans-serif;
+            font-weight: 400;
+            text-transform: capitalize;
+        }
+
+        .container {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 5px;
+            background-color: #fff;
+            flex: 0 0 80%;
+        }
+
+        .container h2 {
+            font-family: 'Tenali Ramakrishna', sans-serif;
+            text-transform: uppercase;
+        }
+
+        #submit_button {
+            border: none;
+            color: #fff;
+            background-color: #d89156;
+            font-size: 1.3rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 7px;
+            cursor: pointer;
+        }
+
+        #submit_button:hover {
+            color: #ffd000;
+        }
+
+        blockquote {
+            background: #f9f9f9;
+            border-left: 10px solid #fcdbbf;
+            margin: 1.5rem;
+            padding: 0.5rem;
+        }
+
+        #quote_author {
+            color: #ffd000;
+        }
+
+        #quote {
+            font-family: 'Tenali Ramakrishna', sans-serif;
+            font-size: 2rem;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Quotes of Famous people</h2>
+    <button id="submit_button" type="button">Next Quote</button>
+    <blockquote>
+        <h2 id="quote">Quote</h2>
+    </blockquote>
+    <h3 id="quote_author">Author of the quote</h3>
+</div>
+<script>
+    const quotes = [
+        {
+            name: 'Sadhguru',
+            quotes: 'The sign of intelligence is that you are constantly wondering. Idiots are always dead sure about every damn thing they are doing in their life'
+        },
+        {
+            name: 'Jaggi Vasudev',
+            quotes: 'Love is your quality. Love is not what you do. Love is what you are.'
+        },
+        {
+            name: 'Vasudev',
+            quotes: 'Krishna says in the Gita, “The worst crime in the world is indecision.'
+        }
+    ];
+
+    const submitButton = document.querySelector('#submit_button');
+    const quoteAuthor = document.querySelector('#quote_author');
+    const quote = document.querySelector('#quote');
+
+    submitButton.addEventListener('click', displayQuote);
+
+    function displayQuote() {
+        let number = Math.floor(Math.random() * quotes.length);
+        quoteAuthor.innerHTML = quotes[number].name;
+        quote.innerHTML = quotes[number].quotes;
+
+    }
+</script>
+</body>
+</html>
